@@ -1,0 +1,42 @@
+{
+    "name": "eadortsu/laravel-graphql-client",
+    "description": "GraphQL client for laravel/lumen",
+    "type": "library",
+    "keywords": [
+        "api",
+        "client",
+        "graphql",
+        "laravel",
+        "laravel-graphql"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eugene Adortsu",
+            "email": "mail@eadortsu.com",
+            "homepage": "https://www.eadortsu.com/"
+        }
+    ],
+    "require": {
+        "php": ">= 7.1",
+        "ext-json": "*",
+        "euautomation/graphql-client": "^0.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "eadortsu\\GraphQL\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "eadortsu\\GraphQL\\GraphQLClientServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
