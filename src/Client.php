@@ -8,12 +8,10 @@ class Client
 {
     protected $client;
     protected $config;
-    protected $endpoint_url;
 
     public function __construct()
     {
         $this->config = config('graphql-client');
-        $this->endpoint_url = $this->config['endpoint_url'];
         $this->client = new \EUAutomation\GraphQL\Client();
     }
 
