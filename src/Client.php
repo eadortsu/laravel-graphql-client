@@ -6,13 +6,11 @@ use Illuminate\Support\Facades\Request;
 
 class Client
 {
-    protected $client;
     protected $config;
 
     public function __construct()
     {
         $this->config = config('graphql-client');
-        $this->client = new \EUAutomation\GraphQL\Client();
     }
 
 
@@ -26,7 +24,7 @@ class Client
     public function fetch(string $query,string $endpoint_url, array $variables = [], string $token = ''): \EUAutomation\GraphQL\Response
     {
 
-        $this->client->setUrl($endpoint_url);
+        $client = new \EUAutomation\GraphQL\Client($endpoint_url);
 
         $header = [];
 
@@ -37,6 +35,6 @@ class Client
         if ($this->config['authorization_type'] == "api key") {
             $header[$this->config['key']] = $token;
         }
-        return $this->client->response($query, $variables, $header);
+        return $client->response($query, $variables, $header);
     }
 }
